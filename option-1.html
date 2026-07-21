@@ -89,11 +89,11 @@
   .lede{ color:var(--muted); margin-top:18px; max-width:58ch; }
   .lede strong{ color:var(--ink); font-weight:500; }
 
-  /* intro / entity statement */
-  .intro-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+  /* intro / entity statement — centered tinted band */
+  .intro-grid{ display:flex; flex-direction:column; align-items:center; gap:52px; text-align:center; }
   .intro-grid p{ font-size:clamp(20px, 2.4vw, 27px); line-height:1.5; font-style:italic;
-    font-family:"Didot","Bodoni 72",Georgia,serif; text-wrap:balance; }
-  .intro-facts{ display:grid; gap:0; border-top:1px solid var(--line); }
+    font-family:"Didot","Bodoni 72",Georgia,serif; text-wrap:balance; max-width:30em; }
+  .intro-facts{ display:grid; gap:0; border-top:1px solid var(--line); width:100%; max-width:560px; text-align:left; }
   .fact{ display:flex; justify-content:space-between; gap:16px; padding:16px 0; border-bottom:1px solid var(--line); font-size:14px; }
   .fact dt{ color:var(--muted); letter-spacing:.1em; text-transform:uppercase; font-size:11px; padding-top:3px; }
   .fact dd{ text-align:right }
@@ -215,7 +215,7 @@
   </section>
 
   <!-- ENTITY INTRO (AEO: direct, citable answer to "what is La La Pilates") -->
-  <section aria-label="About the studio">
+  <section class="tint" aria-label="About the studio">
     <div class="wrap intro-grid">
       <p>La La Pilates is a boutique reformer Pilates studio inside House of NAF on Elmbank Street, Glasgow city centre — four reformers, small supportive classes, and no intimidating gym energy.</p>
       <dl class="intro-facts">
