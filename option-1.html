@@ -28,7 +28,7 @@
   *{box-sizing:border-box; margin:0}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important; animation:none!important} }
-  body{ background:var(--bg); color:var(--ink);
+  body{ background:var(--bg); color:var(--ink); overflow-x:clip;
     font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
   .script{ font-family:"Snell Roundhand","Savoye LET","Apple Chancery","Brush Script MT",cursive; font-weight:400; }
@@ -173,7 +173,7 @@
   footer.site{ border-top:1px solid var(--line); padding:56px 0 40px; }
   .foot-grid{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
   .foot-mark{ font-size:56px; line-height:1; transform:rotate(-3deg); }
-  .foot-tag{ font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); margin-top:6px; }
+  .foot-tag{ font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); margin-top:6px; }
   .foot-links{ display:flex; gap:24px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
   .foot-links a{ text-decoration:none; color:var(--muted) }
   .foot-links a:hover{ color:var(--ink) }
