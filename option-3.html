@@ -69,7 +69,7 @@
   @media (max-width:680px){ .stats-inner{ grid-template-columns:1fr 1fr; gap:24px 16px } }
 
   /* sections */
-  section{ padding:96px 0 }
+  section{ padding:clamp(96px, 12vh, 132px) 0 }
 
   /* steps */
   .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:52px }
@@ -82,10 +82,10 @@
 
   /* class cards */
   .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:52px }
-  .card{ border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; background:var(--bg) }
-  .card .im{ position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--soft) }
+  .card{ display:flex; flex-direction:column }
+  .card .im{ position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--soft); border-radius:14px }
   .card .im img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
-  .card .body{ padding:24px; display:flex; flex-direction:column; gap:10px; flex:1 }
+  .card .body{ padding:18px 4px 0; display:flex; flex-direction:column; gap:10px; flex:1 }
   .card h3{ font-size:18.5px; font-weight:600; letter-spacing:-.01em }
   .card .chip{ align-self:flex-start; font-size:12.5px; font-weight:500; color:var(--muted);
     background:var(--soft); border-radius:999px; padding:5px 13px }
