@@ -26,10 +26,14 @@
   .nav ul{ display:flex; gap:26px; list-style:none; padding:0 }
   .nav ul a{ text-decoration:none; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted) }
   .nav ul a:hover, .nav ul a.on{ color:var(--ink) }
+  .menu-t, .menu-btn{ display:none }
   @media (max-width:860px){
-    .nav-inner{ flex-wrap:wrap; height:auto; padding-top:12px; padding-bottom:10px; row-gap:8px }
-    .nav ul{ order:3; width:100%; display:flex; gap:18px; overflow-x:auto; -webkit-overflow-scrolling:touch }
-    .nav ul a{ white-space:nowrap; font-size:11px }
+    .menu-btn{ display:inline-block; font-size:11px; letter-spacing:.18em; text-transform:uppercase; border:1px solid var(--line); border-radius:999px; padding:9px 16px; cursor:pointer; user-select:none }
+    .nav ul{ display:none; position:absolute; top:100%; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--line); flex-direction:column; gap:0; padding:6px 24px 12px; box-shadow:0 12px 24px rgba(20,17,12,.08) }
+    .nav ul li{ border-bottom:1px solid var(--line) }
+    .nav ul li:last-child{ border-bottom:0 }
+    .nav ul a{ display:block; padding:13px 0; font-size:12px }
+    .menu-t:checked ~ ul{ display:flex }
   }
   .page-head{ padding:clamp(64px, 9vh, 96px) 0 48px; text-align:center }
   .page-head h1{ font-size:clamp(32px, 4.6vw, 54px); line-height:1.08; font-weight:400; font-family:"Didot","Bodoni 72",Georgia,serif; margin-top:14px; text-wrap:balance }
@@ -68,6 +72,8 @@
   <div class="nav-inner">
     <a class="mark script" href="combined.html" aria-label="La La Pilates home">LaLa</a>
     <nav aria-label="Primary">
+      <input type="checkbox" id="menu-t" class="menu-t" aria-label="Toggle menu">
+      <label for="menu-t" class="menu-btn">Menu</label>
       <ul>
         <li><a href="combined.html#classes">Classes</a></li>
         <li><a href="combined.html#times">Class times</a></li>
