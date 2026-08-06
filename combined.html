@@ -228,6 +228,18 @@
     .ul-init.vis::after{ transform:scaleX(1) }
   }
 
+  /* hover colour states */
+  .price{ transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease }
+  .price:hover{ background:var(--pill); border-color:var(--pill) }
+  .price:hover .pn, .price:hover .amt{ color:var(--pill-text) }
+  .price:hover p, .price:hover .amt small{ color:var(--pill-text); opacity:.8 }
+  .price:hover a{ color:var(--pill-text); border-color:var(--pill-text) }
+  .price:hover .flag{ background:var(--pill-text); color:var(--pill) }
+  .week-row{ transition:background-color .25s ease, padding .25s ease }
+  .week-row:hover{ background:var(--panel); padding-left:16px; padding-right:16px }
+  .step{ transition:background-color .25s ease }
+  .step:hover{ background:var(--panel) }
+
   /* footer */
   footer.site{ border-top:1px solid var(--line); padding:52px 0 40px; }
   .foot-grid{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
