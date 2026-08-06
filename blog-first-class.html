@@ -26,7 +26,11 @@
   .nav ul{ display:flex; gap:26px; list-style:none; padding:0 }
   .nav ul a{ text-decoration:none; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted) }
   .nav ul a:hover, .nav ul a.on{ color:var(--ink) }
-  @media (max-width:860px){ .nav ul{ display:none } }
+  @media (max-width:860px){
+    .nav-inner{ flex-wrap:wrap; height:auto; padding-top:12px; padding-bottom:10px; row-gap:8px }
+    .nav ul{ order:3; width:100%; display:flex; gap:18px; overflow-x:auto; -webkit-overflow-scrolling:touch }
+    .nav ul a{ white-space:nowrap; font-size:11px }
+  }
   .page-head{ padding:clamp(64px, 9vh, 96px) 0 48px; text-align:center }
   .page-head h1{ font-size:clamp(32px, 4.6vw, 54px); line-height:1.08; font-weight:400; font-style:italic; font-family:"Didot","Bodoni 72",Georgia,serif; margin-top:14px; text-wrap:balance }
   .page-head .lede{ color:var(--muted); margin:18px auto 0; max-width:58ch }
