@@ -217,7 +217,7 @@
 
   /* animated underlines */
   .uline{ position:relative; white-space:nowrap }
-  .uline::after{ content:""; position:absolute; left:0; right:0; bottom:-3px; height:2px; background:var(--ink) }
+  .uline::after{ content:""; position:absolute; left:0; right:0; bottom:-4px; height:1px; background:var(--ink); opacity:.5 }
   @media (prefers-reduced-motion: no-preference){
     .ul-init::after{ transform:scaleX(0); transform-origin:left; transition:transform .8s ease .35s }
     .ul-init.vis::after{ transform:scaleX(1) }
