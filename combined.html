@@ -197,12 +197,8 @@
   /* motion */
   .card .ph img{ transition:transform .5s ease }
   @media (prefers-reduced-motion: no-preference){
-    .rv{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease }
+    .rv{ opacity:0; transform:translateY(12px); transition:opacity .45s ease, transform .45s ease }
     .rv.vis{ opacity:1; transform:none }
-    .rv.rv-l{ transform:translateX(-36px) }
-    .rv.rv-r{ transform:translateX(36px) }
-    .rv.rv-d{ transform:translateY(-22px) }
-    .rv.rv-l.vis, .rv.rv-r.vis, .rv.rv-d.vis{ transform:none }
     .hero .eyebrow, .hero-word, .hero-base{ animation:heroin .9s ease both }
     .hero-word{ animation-delay:.15s }
     .hero-base{ animation-delay:.3s }
@@ -214,11 +210,10 @@
 
   /* ticker */
   .ticker{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; padding:13px 0 }
-  .ticker-track{ display:flex; white-space:nowrap; width:max-content; animation:tick 42s linear infinite }
+  .ticker-track{ display:flex; flex-wrap:wrap; justify-content:center; row-gap:4px }
   .ticker span{ font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); padding:0 22px }
   .ticker span::after{ content:"·"; margin-left:44px; color:var(--ink) }
-  @keyframes tick{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
-  @media (prefers-reduced-motion: reduce){ .ticker-track{ animation:none } }
+
 
   /* animated underlines */
   .uline{ position:relative; white-space:nowrap }
@@ -235,8 +230,8 @@
   .price:hover p, .price:hover .amt small{ color:var(--pill-text); opacity:.8 }
   .price:hover a{ color:var(--pill-text); border-color:var(--pill-text) }
   .price:hover .flag{ background:var(--pill-text); color:var(--pill) }
-  .week-row{ transition:background-color .25s ease, padding .25s ease }
-  .week-row:hover{ background:var(--panel); padding-left:16px; padding-right:16px }
+  .week-row{ transition:background-color .25s ease }
+  .week-row:hover{ background:var(--panel) }
   .step{ transition:background-color .25s ease }
   .step:hover{ background:var(--panel) }
 
@@ -297,8 +292,7 @@
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Reformer Pilates Glasgow</span><span>Max 4 per class</span><span>Beginner classes every week</span><span>Private sessions 1:1 – 1:4</span><span>House of NAF · Elmbank Street</span><span>Book on Momence</span>
-      <span>Reformer Pilates Glasgow</span><span>Max 4 per class</span><span>Beginner classes every week</span><span>Private sessions 1:1 – 1:4</span><span>House of NAF · Elmbank Street</span><span>Book on Momence</span>
+      <span>Reformer Pilates Glasgow</span><span>Max 4 per class</span><span>Beginner classes every week</span><span>Private sessions 1:1 – 1:4</span><span>Book on Momence</span>
     </div>
   </div>
 
@@ -578,30 +572,14 @@
 (function(){
   if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (!('IntersectionObserver' in window)) return;
-  function tag(sel, cls){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('rv'); if (cls) el.classList.add(cls); }); }
-  tag('.sec-head', 'rv-d');
-  tag('.intro-grid > *', 'rv-d');
-  tag('.founder .ph', 'rv-l'); tag('.founder figure', 'rv-r');
-  tag('.split > div:first-child', 'rv-l'); tag('.split .ph', 'rv-r');
-  tag('.visit > div:first-child', 'rv-l'); tag('.visit .mapph', 'rv-r');
-  tag('.quote'); tag('.week-row');
-  ['.cards .card', '.steps .step', '.prices .price'].forEach(function(sel){
-    document.querySelectorAll(sel).forEach(function(el, i){
-      el.classList.add('rv');
-      if (i % 3 === 0) el.classList.add('rv-l');
-      if (i % 3 === 2) el.classList.add('rv-r');
-    });
-  });
-  document.querySelectorAll('.gallery-grid .g').forEach(function(el, i){
-    el.classList.add('rv'); el.classList.add(i % 2 ? 'rv-r' : 'rv-l');
-    el.style.transitionDelay = (i % 4) * 70 + 'ms';
-  });
+  var els = document.querySelectorAll('.sec-head, .card, .step, .price, .week-row, .gallery-grid .g, .quote, .founder .ph, .founder figure, .split > div, .intro-grid > *, .visit > *');
+  els.forEach(function(el, i){ el.classList.add('rv'); el.style.transitionDelay = (i % 3) * 60 + 'ms'; });
   document.querySelectorAll('.uline').forEach(function(el){ el.classList.add('ul-init'); });
-  var els = document.querySelectorAll('.rv, .uline');
+  var all = document.querySelectorAll('.rv, .uline');
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
-  els.forEach(function(el){ io.observe(el); });
+  all.forEach(function(el){ io.observe(el); });
 })();
 </script>
 
