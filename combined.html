@@ -208,16 +208,11 @@
   }
   @keyframes heroin{ from{ opacity:0; transform:translateY(18px) } to{ opacity:1; transform:none } }
 
-  /* ticker */
-  .ticker{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; padding:13px 0 }
-  .ticker-track{ display:flex; flex-wrap:wrap; justify-content:center; row-gap:4px }
-  .ticker span{ font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); padding:0 22px }
-  .ticker span::after{ content:"·"; margin-left:44px; color:var(--ink) }
 
 
   /* animated underlines */
   .uline{ position:relative; white-space:nowrap }
-  .uline::after{ content:""; position:absolute; left:0; right:0; bottom:-4px; height:1px; background:var(--ink); opacity:.5 }
+  .uline::after{ content:""; position:absolute; left:0; right:0; bottom:-4px; height:1px; background:currentColor; opacity:.35 }
   @media (prefers-reduced-motion: no-preference){
     .ul-init::after{ transform:scaleX(0); transform-origin:left; transition:transform .8s ease .35s }
     .ul-init.vis::after{ transform:scaleX(1) }
@@ -289,12 +284,6 @@
       </div>
     </div>
   </section>
-
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>Reformer Pilates Glasgow</span><span>Max 4 per class</span><span>Beginner classes every week</span><span>Private sessions 1:1 – 1:4</span><span>Book on Momence</span>
-    </div>
-  </div>
 
   <!-- ENTITY INTRO -->
   <section class="tint" aria-label="About the studio">
